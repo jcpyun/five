@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/1.9/ref/settings/
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 
 # Quick-start development settings - unsuitable for production
@@ -25,8 +25,14 @@ SECRET_KEY = 'e2lpegddpdn)ea0hy69o+0xv5(l440ma6*lxz_xi73y7bgf)d^'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['utryna.com','www.utryna.com','youtryna.com','www.youtryna.com','http://protected-meadow-25847.herokuapp.com/']
 
+
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_HOST_USER = "cmujcp@gmail.com"
+EMAIL_HOST_PASSWORD = "canucks1234"
+EMAIL_PORT = 587
+EMAIL_USE_TLS= True
 
 # Application definition
 
@@ -39,8 +45,18 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     ######## my apps ##########
     'home',
+    ####intsalled app
+    'django.contrib.sites',
+    'crispy_forms', #homepage app
+    'registration', #homepage app
 ]
 
+   
+  
+ 
+  
+    
+    # 
 MIDDLEWARE_CLASSES = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -50,6 +66,7 @@ MIDDLEWARE_CLASSES = [
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'wow.middleware.ReferMiddleware',
 ]
 
 ROOT_URLCONF = 'wow.urls'
@@ -125,3 +142,9 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS= (
     os.path.join(BASE_DIR, "assets"),
 )
+CRISPY_TEMPLATE_PACK = 'bootstrap3'
+
+ACCOUNT_ACTIVATION_DAYS=7
+REGISTRATION_AUTO_LOGIN=True
+SITE_ID=1
+LOGIN_REDIRECT_URL= '/'
