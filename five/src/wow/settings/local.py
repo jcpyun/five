@@ -12,6 +12,13 @@ https://docs.djangoproject.com/en/1.9/ref/settings/
 
 import os
 
+#djangodomain
+# from django.contrib.sites.models import Site
+# one= Site.objects.all()[0]
+# one.domain = 'utryna.com'
+# one.name = 'utryna.com'
+# one.save()
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
@@ -144,6 +151,7 @@ STATICFILES_DIRS= (
 )
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
 
+REGISTRATION_EMAIL_HTML = False
 ACCOUNT_ACTIVATION_DAYS=7
 REGISTRATION_AUTO_LOGIN=True
 SITE_ID=1

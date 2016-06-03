@@ -26,8 +26,9 @@ from registration.users import UserModel
 
 def findUTC():
     H= datetime.datetime.utcnow().strftime("%H")
+    print "CURRENT UTC", H
     intH= int(H)
-    current = (intH-17)
+    current = (intH-17)*-1
     return current
 
 
@@ -109,6 +110,7 @@ def amelia():
     #print "SHITSHITSHIT", currentUTC
     #print countryData()[11+currentUTC]
     randomCountry =  random.choice(countryData()[11+currentUTC])
+    print currentUTC
     print "RAMDOMIZED#######", randomCountry
     return countryData()[11+currentUTC]
     
@@ -221,9 +223,9 @@ def home(request):
     randomCountry = random.choice(amelia())
     drinkcountry= randomCountry
     try:
-        Drink= drink()[drinkcountry]
+        Drink= "%s's national drink is %s" % (randomCountry, drink()[drinkcountry])
     except: 
-        Drink = "This country does not have any national drink in our database"
+        Drink = "%s needs to put their national drink into our database... Try refreshing to get another country's drink'" % randomCountry
     newamelia=amelia()
     
     
